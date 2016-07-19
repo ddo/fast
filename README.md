@@ -1,5 +1,5 @@
-# fast
-> Minimal zero-dependency utility for testing your internet speed from terminal
+# fast [![Github All Releases](https://img.shields.io/github/downloads/ddo/fast/total.svg?style=flat-square)]()
+> Minimal zero-dependency utility for testing your internet download speed from terminal
 
 *Powered by Fast.com - Netflix*
 
