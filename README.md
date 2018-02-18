@@ -18,13 +18,13 @@ replace the download link with your os one
 ### with curl
 
 ```sh
-curl -L https://github.com/ddo/fast/releases/download/v0.0.1/fast_linux_amd64 -o fast
+curl -L https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -o fast
 ```
 
 ### or wget
 
 ```sh
-wget https://github.com/ddo/fast/releases/download/v0.0.1/fast_linux_amd64 -O fast
+wget https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -O fast
 ```
 
 ## Then chmod
