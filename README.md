@@ -16,10 +16,10 @@
 > below is ubuntu 64 bit example
 
 ```sh
-curl -L https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -o fast
+curl -L https://github.com/ddo/fast/releases/download/v0.0.3/fast_linux_amd64 -o fast
 
 # or wget
-wget https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -O fast
+wget https://github.com/ddo/fast/releases/download/v0.0.3/fast_linux_amd64 -O fast
 
 # then chmod
 chmod +x fast
