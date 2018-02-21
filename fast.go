@@ -8,10 +8,6 @@ import (
 	"github.com/ddo/go-spin"
 )
 
-const (
-	ERR = "\r internet error. please try again"
-)
-
 func main() {
 	status := ""
 	spinner := spin.New("")
@@ -31,7 +27,7 @@ func main() {
 	// init
 	err := fastCom.Init()
 	if err != nil {
-		fmt.Println(errInternet)
+		fmt.Println(err)
 		return
 	}
 
@@ -40,7 +36,7 @@ func main() {
 	// get urls
 	urls, err := fastCom.GetUrls()
 	if err != nil {
-		fmt.Println(errInternet)
+		fmt.Println(err)
 		return
 	}
 
@@ -59,7 +55,7 @@ func main() {
 
 	err = fastCom.Measure(urls, KbpsChan)
 	if err != nil {
-		fmt.Println(errInternet)
+		fmt.Println(err)
 	}
 
 	ticker.Stop()
