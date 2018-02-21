@@ -21,7 +21,7 @@ func main() {
 
 	go func() {
 		for range ticker.C {
-			fmt.Printf("\r %s  %s", spinner.Spin(), status)
+			fmt.Printf("%c[2K %s  %s\r", 27, spinner.Spin(), status)
 		}
 	}()
 	// output
@@ -36,7 +36,7 @@ func main() {
 		return
 	}
 
-	status = "connecting   "
+	status = "connecting"
 
 	// get urls
 	urls, err := fastCom.GetUrls()
@@ -46,17 +46,17 @@ func main() {
 		return
 	}
 
-	status = "loading      "
+	status = "loading"
 
 	// measure
 	KbpsChan := make(chan float64)
 
 	go func() {
 		for Kbps := range KbpsChan {
-			status = format(Kbps) + "    "
+			status = format(Kbps)
 		}
 
-		fmt.Printf("\r -> %s\n", status)
+		fmt.Printf("\r%c[2K -> %s\n", 27, status)
 	}()
 
 	err = fastCom.Measure(urls, KbpsChan)
