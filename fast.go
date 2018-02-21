@@ -73,10 +73,15 @@ func format(Kbps float64) string {
 	unit := "Kbps"
 	f := "%.f %s"
 
-	if Kbps > 1000 {
-		unit = "Mbps"
-		Kbps /= 1000 // Mbps
+	if Kbps > 1000000 { // Gbps
 		f = "%.2f %s"
+		unit = "Gbps"
+		Kbps /= 1000
+
+	} else if Kbps > 1000 { // Mbps
+		f = "%.2f %s"
+		unit = "Mbps"
+		Kbps /= 1000
 	}
 
 	return fmt.Sprintf(f, Kbps, unit)
