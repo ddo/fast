@@ -30,9 +30,8 @@ func main() {
 
 	// init
 	err := fastCom.Init()
-
 	if err != nil {
-		fmt.Println(ERR)
+		fmt.Println(errInternet)
 		return
 	}
 
@@ -40,9 +39,8 @@ func main() {
 
 	// get urls
 	urls, err := fastCom.GetUrls()
-
 	if err != nil {
-		fmt.Println(ERR)
+		fmt.Println(errInternet)
 		return
 	}
 
@@ -60,9 +58,8 @@ func main() {
 	}()
 
 	err = fastCom.Measure(urls, KbpsChan)
-
 	if err != nil {
-		fmt.Println(ERR)
+		fmt.Println(errInternet)
 	}
 
 	ticker.Stop()
