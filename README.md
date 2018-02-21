@@ -3,56 +3,62 @@
 
 *Powered by Fast.com - Netflix*
 
-[![asciicast](https://asciinema.org/a/80106.png)](https://asciinema.org/a/80106)
+<p align="center"><a href="https://asciinema.org/a/80106"><img src="https://asciinema.org/a/80106.png" width="50%"></a></p>
 
-## Download to your bin folder
+## Installation
 
-* direct download the binary for your os here https://github.com/ddo/fast/releases
+#### Bin
 
-* or from terminal
+> replace the download link with your os one
 
-replace the download link with your os one
+> https://github.com/ddo/fast/releases
 
-*below is ubuntu 64 bit example*
-
-### with curl
+> below is ubuntu 64 bit example
 
 ```sh
 curl -L https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -o fast
-```
 
-### or wget
-
-```sh
+# or wget
 wget https://github.com/ddo/fast/releases/download/v0.0.2/fast_linux_amd64 -O fast
-```
 
-## Then chmod
-
-```sh
+# then chmod
 chmod +x fast
-```
 
-## Usage
-
-* run direct from download folder
-
-```sh
+# run
 ./fast
 ```
 
-* if you download to your bin folder
+#### Docker
 
-```
-fast
-```
-
-## For golang user
-
-golang user can install from the source code
+> ~10 MB
 
 ```sh
-go get github.com/ddo/fast
+docker run --rm ddooo/fast
+```
+
+#### Snap
+
+> *soon*
+
+#### Brew
+
+> *soon*
+
+#### For golang user
+
+> golang user can install from the source code
+
+```sh
+go get -u github.com/ddo/fast
+```
+
+## Build
+
+#### Docker
+
+```sh
+docker run --rm -v "$PWD":/go/src/fast -w /go/src/fast golang:alpine go build -v
+docker build -t ddooo/fast .
 ```
 
 ## Bug
