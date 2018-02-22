@@ -38,7 +38,9 @@ docker run --rm ddooo/fast
 
 #### Snap
 
-> *soon*
+```sh
+snap install fast
+```
 
 #### Brew
 
@@ -57,8 +59,21 @@ go get -u github.com/ddo/fast
 #### Docker
 
 ```sh
+# build alpine binary file from root folder
 docker run --rm -v "$PWD":/go/src/fast -w /go/src/fast golang:alpine go build -v
+
+mv fast build/docker/
+cd build/docker/
 docker build -t ddooo/fast .
+```
+
+#### Snap
+
+```sh
+cd build/snap/
+snapcraft
+snapcraft push fast_*.snap
+snapcraft release fast <revision> <channel>
 ```
 
 ## Bug

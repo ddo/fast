@@ -1,2 +1,3 @@
-vendor/
-fast
+build/docker/fast
+build/snap/*
+!build/snap/snapcraft.yaml

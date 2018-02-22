@@ -1,0 +1,20 @@
+name: fast
+version: 0.0.3
+summary: Test your internet download speed from terminal.
+description: |
+  Minimal zero-dependency utility for testing your internet download speed from terminal.
+  Powered by Fast.com - Netflix.
+
+grade: stable
+confinement: strict
+
+parts:
+  fast:
+    source: ..
+    plugin: go
+    go-importpath: github.com/ddo/fast
+
+apps:
+  fast:
+    command: fast
+    plugs: [network]
