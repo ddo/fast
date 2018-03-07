@@ -69,7 +69,7 @@ func format(Kbps float64) string {
 	if Kbps > 1000000 { // Gbps
 		f = "%.2f %s"
 		unit = "Gbps"
-		Kbps /= 1000
+		Kbps /= 1000000
 
 	} else if Kbps > 1000 { // Mbps
 		f = "%.2f %s"
