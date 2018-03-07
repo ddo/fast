@@ -1,5 +1,5 @@
 name: fast
-version: 0.0.3
+version: 0.0.4
 summary: Test your internet download speed from terminal.
 description: |
   Minimal zero-dependency utility for testing your internet download speed from terminal.
@@ -10,7 +10,7 @@ confinement: strict
 
 parts:
   fast:
-    source: ..
+    source: ../../
     plugin: go
     go-importpath: github.com/ddo/fast
 
