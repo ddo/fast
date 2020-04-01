@@ -1,16 +1,17 @@
-name: fast
+name: fast-ryanjyoder
 version: 0.0.4
 summary: Test your internet download speed from terminal.
 description: |
   Minimal zero-dependency utility for testing your internet download speed from terminal.
   Powered by Fast.com - Netflix.
 
+base: core18
 grade: stable
 confinement: strict
 
 parts:
   fast:
-    source: ../../
+    source: .
     plugin: go
     go-importpath: github.com/ddo/fast
 
