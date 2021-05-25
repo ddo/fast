@@ -42,6 +42,12 @@ docker run --rm ddooo/fast
 snap install fast
 ```
 
+#### Arch Linux (AUR)
+
+```sh
+yay -S fast || paru -S fast
+```
+
 #### Brew
 
 > *soon*
