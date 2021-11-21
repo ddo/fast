@@ -11,10 +11,11 @@ import (
 )
 
 func main() {
-	var kb, mb, gb bool
+	var kb, mb, gb, silent bool
 	flag.BoolVar(&kb,"k", false, "Format output in Kbps")
 	flag.BoolVar(&mb,"m", false, "Format output in Mbps")
 	flag.BoolVar(&gb,"g", false, "Format output in Gbps")
+	flag.BoolVar(&silent,"silent", false, "Surpress all output except for the final result")
 
 	flag.Parse()
 
@@ -28,12 +29,13 @@ func main() {
 
 	// output
 	ticker := time.NewTicker(100 * time.Millisecond)
-
-	go func() {
-		for range ticker.C {
-			fmt.Printf("%c[2K %s  %s\r", 27, spinner.Spin(), status)
-		}
-	}()
+	if !silent {
+		go func() {
+			for range ticker.C {
+				fmt.Printf("%c[2K %s  %s\r", 27, spinner.Spin(), status)
+			}
+		}()
+	}
 	// output
 
 	fastCom := fast.New()
@@ -60,11 +62,22 @@ func main() {
 	KbpsChan := make(chan float64)
 
 	go func() {
+		var value,units string
 		for Kbps := range KbpsChan {
-			status = format(Kbps,kb,mb,gb)
-		}
+			value,units = format(Kbps,kb,mb,gb)
+			// don't print the units of measurement if explicitly asked for
+			if kb || mb || gb {
+				status = fmt.Sprintf("%s",value)
+			}else{
+				status = fmt.Sprintf("%s %s",value,units)
+			}
 
-		fmt.Printf("\r%c[2K -> %s\n", 27, status)
+		}
+		if silent {
+			fmt.Printf("%s\n",status)
+		} else {
+			fmt.Printf("\r%c[2K -> %s\n", 27,status)
+		}
 	}()
 
 	err = fastCom.Measure(urls, KbpsChan)
@@ -78,25 +91,25 @@ func main() {
 }
 
 func formatGbps(Kbps float64)(string,string,float64) {
-	f := "%.2f %s"
+	f := "%.2f"
 	unit := "Gbps"
 	value := Kbps/1000000
 	return f,unit,value
 }
 func formatMbps(Kbps float64)(string,string,float64) {
-	f := "%.2f %s"
+	f := "%.2f"
 	unit := "Mbps"
 	value := Kbps/1000
 	return f,unit,value
 }
 func formatKbps(Kbps float64)(string,string,float64) {
-	f := "%.f %s"
+	f := "%.f"
 	unit := "Kbps"
 	value := Kbps
 	return f,unit,value
 }
 
-func format(Kbps float64,kb bool,mb bool, gb bool) string {
+func format(Kbps float64,kb bool,mb bool, gb bool) (string, string) {
 	var value float64
 	var unit string
 	var f string
@@ -115,5 +128,6 @@ func format(Kbps float64,kb bool,mb bool, gb bool) string {
 		f,unit,value=formatKbps(Kbps)
 	}
 
-	return fmt.Sprintf(f, value, unit)
+	strValue := fmt.Sprintf(f,value)
+	return strValue, unit
 }
