@@ -42,7 +42,7 @@ func main() {
 	err := fastCom.Init()
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 
 	status = "connecting"
@@ -51,7 +51,7 @@ func main() {
 	urls, err := fastCom.GetUrls()
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 
 	status = "loading"
@@ -68,11 +68,12 @@ func main() {
 	}()
 
 	err = fastCom.Measure(urls, KbpsChan)
+	ticker.Stop()
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(1)
 	}
 
-	ticker.Stop()
 	return
 }
 
