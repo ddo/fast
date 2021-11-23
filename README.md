@@ -60,6 +60,23 @@ yay -S fast || paru -S fast
 go get -u github.com/ddo/fast
 ```
 
+## Usage
+To use simply invoke `fast` with no arguments.
+```
+$ ./fast
+ -> 340.37 Mbps
+```
+By default fast will print status messages as it progresses and will display a pleasing spinning bar. It will also find the unit of measure most appropriate for your use case.
+
+If you don't want the extra output and you only want the end result, you can use the `--silent` option. Additionally you can force the output into the desired units with the `-k`, `-m`, or `-g` flags.
+
+| Flag     | Description |
+| -------  | ----------- |
+| --silent | Hides status information and only displays the end result |
+| -k       | Forces output into Kbps |
+| -m       | Forces output into Mbps |
+| -g       | Forces output into Gbps |
+
 ## Build
 
 #### Docker
