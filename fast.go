@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"time"
 	"flag"
+	"fmt"
 	"os"
+	"time"
 
 	"github.com/ddo/go-fast"
 	"github.com/ddo/go-spin"
@@ -12,10 +12,10 @@ import (
 
 func main() {
 	var kb, mb, gb, silent bool
-	flag.BoolVar(&kb,"k", false, "Format output in Kbps")
-	flag.BoolVar(&mb,"m", false, "Format output in Mbps")
-	flag.BoolVar(&gb,"g", false, "Format output in Gbps")
-	flag.BoolVar(&silent,"silent", false, "Surpress all output except for the final result")
+	flag.BoolVar(&kb, "k", false, "Format output in Kbps")
+	flag.BoolVar(&mb, "m", false, "Format output in Mbps")
+	flag.BoolVar(&gb, "g", false, "Format output in Gbps")
+	flag.BoolVar(&silent, "silent", false, "Surpress all output except for the final result")
 
 	flag.Parse()
 
@@ -62,21 +62,21 @@ func main() {
 	KbpsChan := make(chan float64)
 
 	go func() {
-		var value,units string
+		var value, units string
 		for Kbps := range KbpsChan {
-			value,units = format(Kbps,kb,mb,gb)
+			value, units = format(Kbps, kb, mb, gb)
 			// don't print the units of measurement if explicitly asked for
 			if kb || mb || gb {
-				status = fmt.Sprintf("%s",value)
-			}else{
-				status = fmt.Sprintf("%s %s",value,units)
+				status = fmt.Sprintf("%s", value)
+			} else {
+				status = fmt.Sprintf("%s %s", value, units)
 			}
 
 		}
 		if silent {
-			fmt.Printf("%s\n",status)
+			fmt.Printf("%s\n", status)
 		} else {
-			fmt.Printf("\r%c[2K -> %s\n", 27,status)
+			fmt.Printf("\r%c[2K -> %s\n", 27, status)
 		}
 	}()
 
@@ -90,44 +90,44 @@ func main() {
 	return
 }
 
-func formatGbps(Kbps float64)(string,string,float64) {
+func formatGbps(Kbps float64) (string, string, float64) {
 	f := "%.2f"
 	unit := "Gbps"
-	value := Kbps/1000000
-	return f,unit,value
+	value := Kbps / 1000000
+	return f, unit, value
 }
-func formatMbps(Kbps float64)(string,string,float64) {
+func formatMbps(Kbps float64) (string, string, float64) {
 	f := "%.2f"
 	unit := "Mbps"
-	value := Kbps/1000
-	return f,unit,value
+	value := Kbps / 1000
+	return f, unit, value
 }
-func formatKbps(Kbps float64)(string,string,float64) {
+func formatKbps(Kbps float64) (string, string, float64) {
 	f := "%.f"
 	unit := "Kbps"
 	value := Kbps
-	return f,unit,value
+	return f, unit, value
 }
 
-func format(Kbps float64,kb bool,mb bool, gb bool) (string, string) {
+func format(Kbps float64, kb bool, mb bool, gb bool) (string, string) {
 	var value float64
 	var unit string
 	var f string
 
 	if kb {
-		f,unit,value=formatKbps(Kbps)
-	}else if mb {
-		f,unit,value=formatMbps(Kbps)
-	}else if gb {
-		f,unit,value=formatGbps(Kbps)
-	}else if Kbps > 1000000 { // Gbps
-		f,unit,value=formatGbps(Kbps)
+		f, unit, value = formatKbps(Kbps)
+	} else if mb {
+		f, unit, value = formatMbps(Kbps)
+	} else if gb {
+		f, unit, value = formatGbps(Kbps)
+	} else if Kbps > 1000000 { // Gbps
+		f, unit, value = formatGbps(Kbps)
 	} else if Kbps > 1000 { // Mbps
-		f,unit,value=formatMbps(Kbps)
-	}else{
-		f,unit,value=formatKbps(Kbps)
+		f, unit, value = formatMbps(Kbps)
+	} else {
+		f, unit, value = formatKbps(Kbps)
 	}
 
-	strValue := fmt.Sprintf(f,value)
+	strValue := fmt.Sprintf(f, value)
 	return strValue, unit
 }
