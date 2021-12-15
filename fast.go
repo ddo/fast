@@ -60,8 +60,8 @@ func main() {
 
 	// measure
 	KbpsChan := make(chan float64)
-
-	go func() {
+	done := make(chan bool)
+	go func(done chan bool) {
 		var value, units string
 		for Kbps := range KbpsChan {
 			value, units = format(Kbps, kb, mb, gb)
@@ -78,7 +78,9 @@ func main() {
 		} else {
 			fmt.Printf("\r%c[2K -> %s\n", 27, status)
 		}
-	}()
+
+		done <- true
+	}(done)
 
 	err = fastCom.Measure(urls, KbpsChan)
 	ticker.Stop()
@@ -86,6 +88,9 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+
+	// finish reading KbpsChan so that the result always gets printed
+	<- done
 
 	return
 }
