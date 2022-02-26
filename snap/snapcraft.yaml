@@ -10,7 +10,7 @@ confinement: strict
 
 parts:
   fast:
-    source: ../../
+    source: ..
     plugin: go
     go-importpath: github.com/ddo/fast
 

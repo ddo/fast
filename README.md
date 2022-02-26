@@ -93,7 +93,6 @@ docker build -t ddooo/fast .
 #### Snap
 
 ```sh
-cd build/snap/
 snapcraft
 snapcraft push fast_*.snap
 snapcraft release fast <revision> <channel>
