@@ -1,4 +1,4 @@
-FROM alpine
-RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+FROM alpine:latest
+RUN apk add ca-certificates --no-cache
 COPY fast /
 CMD ["/fast"]
