@@ -1,3 +1,5 @@
+github.com/antonholmquist/jason v1.0.0 h1:Ytg94Bcf1Bfi965K2q0s22mig/n4eGqEij/atENBhA0=
+github.com/antonholmquist/jason v1.0.0/go.mod h1:+GxMEKI0Va2U8h3os6oiUAetHAlGMvxjdpAH/9uvUMA=
 github.com/ddo/go-fast v0.0.0-20180221183904-3a2f747dc782 h1:eLUvgFAzID11rBj2McGOWobrw0e6tVsKEAk2/zTB35w=
 github.com/ddo/go-fast v0.0.0-20180221183904-3a2f747dc782/go.mod h1:FSWBFAxOhcfYWUc6RaycgBezryVDAD0ECXTc9zxp/Xg=
 github.com/ddo/go-spin v0.0.0-20160718105357-ab0a40e623c0 h1:IXCsXx3/itag1jdJ6Pdk96BRuYRHJvcVxn9zMVutt7I=
@@ -6,9 +8,13 @@ github.com/ddo/pick-json v0.0.0-20170207095303-c8760e09e0fe h1:/8DxbVJzB+Rx2wgJ1
 github.com/ddo/pick-json v0.0.0-20170207095303-c8760e09e0fe/go.mod h1:vhvQl0uhd1j+zZPJhH0mZ1Moz14khMTXkCkNDXavk1Q=
 github.com/ddo/rq v0.0.0-20180104074423-d8ad0e0faf64 h1:ccuGArPA2AQwyfbpnC2NCWCvqypJFhn6eEvpwYDJPf8=
 github.com/ddo/rq v0.0.0-20180104074423-d8ad0e0faf64/go.mod h1:XIayI7kdKklkc7yyWDBYMJLbK/AO4AchQUxdoSFcn+k=
-golang.org/x/net v0.0.0-20180218175443-cbe0f9307d01 h1:po1f06KS05FvIQQA2pMuOWZAUXiy1KYdIf0ElUU2Hhc=
-golang.org/x/net v0.0.0-20180218175443-cbe0f9307d01/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
+golang.org/x/net v0.7.0 h1:rJrUqqhjsgNp7KqAIc25s9pZnjU7TUcSY7HcVZjdn1g=
+golang.org/x/net v0.7.0/go.mod h1:2Tu9+aMcznHK/AK1HMvgo6xiTLG5rD5rZLDS+rp2Bjs=
+gopkg.in/ddo/go-dlog.v1 v1.0.2 h1:L0R4ebpoZPFiM9xeYGH06ekkaTswXAmFWYZBY7GV1c8=
+gopkg.in/ddo/go-dlog.v1 v1.0.2/go.mod h1:z8yORl9Lpj7oY5OKBqYXrMDRACff0TbA7/6+M/c2iMw=
 gopkg.in/ddo/go-dlog.v2 v2.1.0 h1:SrIltB+SYmJLJZp/5vGKGLUpk2VCfLUM1V3jGs7RSh4=
 gopkg.in/ddo/go-dlog.v2 v2.1.0/go.mod h1:CENm6saSBTtC4/HLiyEnKte/MHgJ/LECoptlS6oHBVI=
 gopkg.in/ddo/pick.v1 v1.2.2 h1:5Ue60YhDOzjwaQp3vwHwyuJ4ufj4DyKIxn95W4G7iZI=
 gopkg.in/ddo/pick.v1 v1.2.2/go.mod h1:AgGJKIMzwG3nzr1OX4nqa2+J27vPZXFgFnEWI3zh8Ow=
+gopkg.in/ddo/request.v1 v1.4.2 h1:8AtuC5MrCggAAeKnfUKqagI35L7mTmytQMa2ateyOvY=
+gopkg.in/ddo/request.v1 v1.4.2/go.mod h1:+au/LGBhGrn40Y4nxt9ppd5LdXPSgwskjsIMZY1sZ4s=
