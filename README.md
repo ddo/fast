@@ -57,7 +57,7 @@ yay -S fast || paru -S fast
 > golang user can install from the source code
 
 ```sh
-go get -u github.com/ddo/fast
+go install github.com/ddo/fast@latest
 ```
 
 ## Usage
